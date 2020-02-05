@@ -54,8 +54,7 @@ class Root extends Component {
 
 const mapStateToProps = (state) => ({
     isLoading: state.user.isLoading,
-    currentUser: state.user.currentUser,
-    register_status: state.user.register_status
+    currentUser: state.user.currentUser
 })
 
 

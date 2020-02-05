@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import './App.css';
-
+import {Button} from 'semantic-ui-react';
+import firebase from "../../firebase"
 
 
 import {connect} from "react-redux"
@@ -13,11 +14,15 @@ class App extends Component {
         }
     } // before the component is mounted , making sure that there is signedIn user , if not refresh the page so that it redirects to home
 
-    // testing
+    handleSignOut = () => {
+        firebase.auth().signOut()
+      
+    }
+
     render(){
         return(
             <div>
-                
+                <Button onClick={this.handleSignOut}/>
             </div>
         )
     }
