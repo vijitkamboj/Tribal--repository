@@ -1,0 +1,17 @@
+.app-body{
+    background-image: url(./app-back2.jpg);
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed
+}
+#app {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.panels{
+
+    border: 1px solid rgb(145, 145, 145) 
+}

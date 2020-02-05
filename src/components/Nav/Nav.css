@@ -1,0 +1,28 @@
+#nav{
+    position: absolute;;
+    top:0px;
+    width:100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+}
+.navbtn{
+    font-size:20px;
+    font-weight: lighter;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding:10px;
+    padding-right: 35px;
+    
+}
+
+.links{
+    color:rgb(255,153,153);
+}
+
+.links:hover{
+    color:rgb(250, 199, 199)
+
+}
