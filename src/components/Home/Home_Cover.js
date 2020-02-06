@@ -1,7 +1,6 @@
 import React from 'react';
 import './Home.css';
-import { Slide } from 'react-slideshow-image';
-import Carousel, { Dots } from '@brainhubeu/react-carousel';
+
 // const slideImages = [
 //     './4.jpg',
 //     './2.jpg',
