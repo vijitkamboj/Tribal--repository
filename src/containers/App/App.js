@@ -23,7 +23,7 @@ class App extends Component {
     render(){
         return(
             <div>
-                <Button onClick={this.handleSignOut}>SignOut</Button>
+                <Button onClick={this.handleSignOut} size="big" content="SignOut" color="brown" style={{margin:"10px"}}/>
                 <ImageUplaod />
             </div>
         )

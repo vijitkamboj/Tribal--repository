@@ -2,13 +2,13 @@
 import React, { Component } from "react";
 import firebase from "../../firebase";
 import "./ImageUpload.css";
-import {Input} from "semantic-ui-react"
+import {Button,Progress} from "semantic-ui-react"
 
 class ImageUpload extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: null,
+      file: null,
       url: "",
       progress: 0
     };
@@ -16,16 +16,16 @@ class ImageUpload extends Component {
 
   handleChange = e => {
     if (e.target.files[0]) {
-      const image = e.target.files[0];
-      this.setState(() => ({ image }));
+      const file = e.target.files[0];
+      this.setState(() => ({ file }));
     }
   };
 
   handleUpload = () => {
           const {
-              image
+              file
           } = this.state;
-          const uploadTask = firebase.storage().ref(`images/${image.name}`).put(image);
+          const uploadTask = firebase.storage().ref(`file/${file.name}`).put(file);
           uploadTask.on(
               "state_changed",
               snapshot => {
@@ -34,6 +34,12 @@ class ImageUpload extends Component {
                   );
                   this.setState({
                       progress
+                  },()=>{
+                    if (progress==100){
+                      this.setState({
+                        progress:0
+                      })
+                    }
                   });
               },
               error => {
@@ -45,18 +51,30 @@ class ImageUpload extends Component {
   render() {
     return (
 
-          <div class="file-upload">
-            <div class="image-upload-wrap">
-              <input class="file-upload-input" type='file' onchange={this.handleChange} accept="image/*" />
-              <div class="drag-text">
+          <div className="file-upload">
+            <div className="image-upload-wrap">
+              <input className="file-upload-input" type='file' onChange={this.handleChange} />
+              <div className="drag-text">
                 <h3>Drag and drop a file or select add Image</h3>
               </div>
             </div>
-            <div class="file-upload-content">
-              <img class="file-upload-image" src="#" alt="your image" />
-              <div class="image-title-wrap">
-                <button type="button" onclick={this.handleUpload} class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-              </div>
+           
+            <Button
+              onClick={this.handleUpload}
+              className="waves-effect waves-light btn"
+              content ="Upload"
+              size = "medium"
+              style={{margin:"10px"}}
+            />
+            <div className="row">
+            <Progress 
+                percent={this.state.progress} 
+                progress
+                indicating
+                inverted
+                size="medium"
+                style = {{margin:"2px 0 0 0",padding:0}}
+            />
             </div>
           </div>
       
