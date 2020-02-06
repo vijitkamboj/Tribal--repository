@@ -35,7 +35,7 @@ class ImageUpload extends Component {
                   this.setState({
                       progress
                   },()=>{
-                    if (progress==100){
+                    if (progress === 100){
                       this.setState({
                         progress:0
                       })
@@ -72,7 +72,7 @@ class ImageUpload extends Component {
                 progress
                 indicating
                 inverted
-                size="medium"
+                size="large"
                 style = {{margin:"2px 0 0 0",padding:0}}
             />
             </div>
