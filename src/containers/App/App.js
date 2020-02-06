@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import './App.css';
 import {Button} from 'semantic-ui-react';
-import firebase from "../../firebase"
+import firebase from "../../firebase";
+import ImageUplaod from "./ImageUplaod"
 
 
 import {connect} from "react-redux"
@@ -22,7 +23,8 @@ class App extends Component {
     render(){
         return(
             <div>
-                <Button onClick={this.handleSignOut}/>
+                <Button onClick={this.handleSignOut}>SignOut</Button>
+                <ImageUplaod />
             </div>
         )
     }
