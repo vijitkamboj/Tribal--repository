@@ -30,7 +30,7 @@ class Root extends Component {
         firebase.auth().onAuthStateChanged(currentUser => {
             if (currentUser ) {
                 setTimeout(() => {
-                    this.props.setUser(currentUser,"set")
+                    this.props.setUser(currentUser)
                     this.props.history.push("/app")
                 }, 0) // store user in global state and redirect user to chat console
             }else {
