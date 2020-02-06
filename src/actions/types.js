@@ -1,3 +1,5 @@
 export const SET_USER = "SET_USER"
 export const CLEAR_USER = "CLEAR_USER"
 export const CHANGE_CURRENT_CHANNEL = "CHANGE_CURRENT_CHANNEL"
+export const FETCH_LINKS ="FETCH_LINKS"
+export const REMOVE_LINKS = "REMOVE_LINKS"

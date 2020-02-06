@@ -18,4 +18,21 @@ export const clearUser = () => {
     })
 } // used to clear the current user when signout
 
+export const fetchLinks = (links) => {                           
+    return({
+        type: actionTypes.FETCH_LINKS,
+        payload: {
+            links: links,
+        }
+    })
+} // used to clear the current user when signout
+export const removeLinks = () => {                           
+    return({
+        type: actionTypes.REMOVE_LINKS,
+        payload: {
+            links: null,
+        }
+    })
+} // used to clear the current user when signout
+
 

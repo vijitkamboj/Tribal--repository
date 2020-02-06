@@ -22,31 +22,36 @@ class ImageUpload extends Component {
   };
 
   handleUpload = () => {
-          const {
-              file
-          } = this.state;
-          const uploadTask = firebase.storage().ref(`file/${file.name}`).put(file);
-          uploadTask.on(
-              "state_changed",
-              snapshot => {
-                  const progress = Math.round(
-                      (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                  );
-                  this.setState({
-                      progress
-                  },()=>{
-                    if (progress === 100){
-                      this.setState({
-                        progress:0
-                      })
-                    }
-                  });
-              },
-              error => {
-                  console.log(error);
-              }
-              
-          );
+    const {
+      file
+    } = this.state;
+    const uploadTask = firebase.storage().ref(`files/${file.name}`).put(file);
+    uploadTask.on(
+      "state_changed",
+      snapshot => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        this.setState({
+          progress
+        },()=>{
+          if(progress===100){
+            firebase.storage()
+            .ref("files")
+            .child(file.name)
+            .getDownloadURL()
+            .then(url => {
+              const linkTask = firebase.storage().ref(`links/${file.name}`).put(url);
+            })
+          }
+        });
+      },
+      error => {
+        console.log(error);
+      }
+  );
+
+  
   };
   render() {
     return (

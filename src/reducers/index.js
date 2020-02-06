@@ -1,5 +1,6 @@
 import * as actionTypes from "../actions/types"
 import { combineReducers } from "redux";
+import data_reducer from "./links"
 
 
 const initialUserState ={
@@ -28,7 +29,8 @@ const user_reducer = (state = initialUserState ,action) => {
 }// generates states in the store according to the action 
 
 const rootReducer = combineReducers({
-    user : user_reducer
+    user : user_reducer,
+    data: data_reducer
     
 })// makes a tree of states with user as a branch of root , initially it is initialUserState
 

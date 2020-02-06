@@ -30,19 +30,19 @@ class Nav extends Component {
                   text:<a href="#photos"><span>Photos</span></a>,
               },
               {   
-                key:"category",
+                key:"category1",
                 text:<a href="#videos"><span>Videos</span></a>,
             },
             {   
-                key:"category",
+                key:"category2",
                 text:<a href="#audio"><span>Music</span></a>,
             },
             {   
-                key:"category",
+                key:"category3",
                 text:<a href="#documents"><span>Documents</span></a>,
             },
             {   
-                key:"category",
+                key:"category4",
                 text:<a href="#photos"><span>Sports</span></a>,
             }
           ]
