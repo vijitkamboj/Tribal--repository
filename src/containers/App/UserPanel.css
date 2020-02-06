@@ -1,0 +1,28 @@
+#user-panel{
+    display: flex;
+    flex-direction: column;
+}
+
+#user-panel-header{
+    display: flex;
+    align-items: center;
+
+    height: 60px;
+
+    font-size: 30px;
+    color: white;
+    font-weight: lighter;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    border-radius: 5px
+}
+#user-panel-dropdown{
+    margin-left:20px;
+    margin-top:10px;
+    
+    font-size:16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+    color: white;
+    
+}

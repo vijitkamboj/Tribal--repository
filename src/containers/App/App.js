@@ -2,7 +2,8 @@ import React,{Component} from 'react';
 import './App.css';
 import {Button} from 'semantic-ui-react';
 import firebase from "../../firebase";
-import ImageUplaod from "./ImageUplaod"
+import ImageUplaod from "./ImageUplaod";
+import UserPanel from "./UserPanel"
 
 
 import {connect} from "react-redux"
@@ -25,6 +26,7 @@ class App extends Component {
             <div>
                 <Button onClick={this.handleSignOut} size="big" content="SignOut" color="brown" style={{margin:"10px"}}/>
                 <ImageUplaod />
+                <UserPanel currentUser={this.props.currentUser}/>
             </div>
         )
     }
