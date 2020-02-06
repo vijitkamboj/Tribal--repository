@@ -6,6 +6,9 @@ const Nav = () => {
         <div id="nav">
             <div className="navbtn"><Link to="/home" className='links'>Home</Link></div>
             <div className="navbtn"><Link to="/home#about" className='links'>About</Link></div>
+            <div className="navbtn"><Link to="/home" className='links'>Contact Us</Link></div>
+            <div className="navbtn"><Link to="/home" className='links'>Categories</Link></div>
+            <div className="navbtn"><Link to="/home" className='links'>Dashboad</Link></div>
             <div className="navbtn"><Link to="/login" className='links'>Login</Link></div>
         </div>
     )

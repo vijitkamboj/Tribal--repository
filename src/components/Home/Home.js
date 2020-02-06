@@ -1,6 +1,8 @@
 import React ,{Component} from 'react';
 import './Home.css';
 import Nav from '../Nav/Nav'
+import Home_Cover from "./Home_Cover"
+import Categories from './Categories';
 
 
 class Home extends Component {
@@ -11,8 +13,8 @@ class Home extends Component {
 		return(
 			<div className="home">
 				<Nav />
-				<div id="home-cover"></div> 
-				<div id="home-intro"></div>
+				<Home_Cover />
+				<Categories />
 			</div>
 		)
 

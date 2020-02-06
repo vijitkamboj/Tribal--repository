@@ -2,27 +2,29 @@
     position: absolute;;
     top:0px;
     width:100%;
-    height: auto;
+    height: 50px;
 
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+
+    background-color: rgba(0, 0, 0, 0.39);
     
 }
 .navbtn{
     font-size:20px;
-    font-weight: lighter;
+    font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding:10px;
     padding-right: 35px;
-    
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .links{
-    color:rgb(255,153,153);
+    color:white;
 }
-
 .links:hover{
-    color:rgb(250, 199, 199)
+    color:whitesmoke;;
 
 }
