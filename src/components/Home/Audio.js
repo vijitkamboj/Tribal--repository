@@ -1,10 +1,14 @@
 import React from 'react';
 import './Home.css';
 import {Link} from 'react-router-dom'
-const Home_Cover = () => {
+const Audio = () => {
     return(
-        <div id="home-cover">
-           
+        <div id="audio">
+           <div className ="home-heading-cont">
+                <div className="home-heading">
+                        Audio
+                </div>
+           </div>
         </div>
     )
 }

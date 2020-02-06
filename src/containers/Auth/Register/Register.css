@@ -1,5 +1,5 @@
 .reg-back{
-    background-image: url(../Assets/body-back-reg.jpg);
+    background-color: black;
     background-size: cover;
     background-position: center;
 }
@@ -24,7 +24,7 @@
 	height: auto;
 	text-align: center;
 
-	background-color: rgba(255, 255, 255, 0.623);
+	background-color: rgb(255, 255, 255);
 	border-radius: 20px
     }
 
@@ -36,7 +36,7 @@
 	    margin-bottom: 15px;
 
 	    font-size: 30px;
-	    color: rgb(121, 120, 120);
+	    color: rgb(0, 0, 0);
 	    border-bottom: 2px solid rgb(255,153,153);
 	}
 
@@ -53,7 +53,7 @@
 			margin:10px;
 			font-size: 17px;
 			font-weight: lighter;
-			color: rgb(121, 120, 120);
+			color: rgb(0, 0, 0);
 		}
 		input.form{
 			outline:none;
@@ -68,7 +68,7 @@
 
 			font-size:15px;
 			
-			color: rgba(2, 80, 80, 0.945);
+			color: rgba(0, 0, 0, 0.945);
 			
 			border-radius: 5px;
 			
@@ -95,7 +95,7 @@
 			background-color: transparent;
 			font-size:15px;
 			font-weight: lighter;
-			color:rgb(121, 120, 120) ;
+			color:rgb(0, 0, 0) ;
 		}
 	.error-prompt#register,.error-prompt#login{
 	    padding: 10px;
@@ -106,7 +106,7 @@
 	}
 
 	p#suggestion{
-	    color:rgb(121, 120, 120);
+	    color:rgb(0, 0, 0);
 	    margin-bottom: 5px;
 	}
 	.authLink#login,.authLink#register{

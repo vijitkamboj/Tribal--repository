@@ -3,10 +3,14 @@ import './Home.css';
 import {Link} from 'react-router-dom'
 const Videos = () => {
     return(
-        <div id="home-cover">
-           
+        <div id="videos">
+           <div className ="home-heading-cont">
+                <div className="home-heading">
+                        Videos
+                </div>
+           </div>
         </div>
     )
 }
 
-export default Vidoes;
+export default Videos;
