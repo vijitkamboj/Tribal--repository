@@ -1,4 +1,5 @@
 import * as actionTypes from "./types";
+import firebase from "../firebase"
 
 export const setUser = (user) => {
     return ({
@@ -18,7 +19,8 @@ export const clearUser = () => {
     })
 } // used to clear the current user when signout
 
-export const fetchLinks = (links) => {                           
+export const fetchLinks = (links) => { 
+        const linkTask = firebase.storage().ref(`links`).child(links)  ;                    
     return({
         type: actionTypes.FETCH_LINKS,
         payload: {

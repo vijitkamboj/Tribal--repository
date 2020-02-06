@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import firebase from "../../firebase";
 import "./ImageUpload.css";
 import {Button,Progress} from "semantic-ui-react"
+import {connect} from "react-redux";
+import {fetchLinks} from "../../actions/index"
 
 class ImageUpload extends Component {
   constructor(props) {
@@ -34,16 +36,18 @@ class ImageUpload extends Component {
         );
         this.setState({
           progress
-        },()=>{
-          if(progress===100){
-            firebase.storage()
+        },() => {
+          firebase.storage()
             .ref("files")
             .child(file.name)
             .getDownloadURL()
             .then(url => {
-              const linkTask = firebase.storage().ref(`links/${file.name}`).put(url);
-            })
-          }
+              this.setState({ url });
+              if (progress === 100){
+                this.props.fetchLinks(url)
+                console.log("yooooooooooooooooooooooooooooooooooooooooo");
+              }
+            });
         });
       },
       error => {
@@ -54,8 +58,8 @@ class ImageUpload extends Component {
   
   };
   render() {
+    console.log(this.state.url);
     return (
-
           <div className="file-upload">
             <div className="image-upload-wrap">
               <input className="file-upload-input" type='file' onChange={this.handleChange} />
@@ -87,4 +91,4 @@ class ImageUpload extends Component {
   }
 }
 
-export default ImageUpload;
+export default connect(null,{fetchLinks})(ImageUpload);

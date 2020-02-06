@@ -22,7 +22,7 @@ class AboutModal extends Component {
 
                     <Modal.Content style={{border:"none",fontWeight:"lighter"}}>
 
-                    The "Tribal Repository" is a unique digital repository related to Tribes in India, developed by Ministry of Tribal Affairs, Govt. of India.
+                    The "Tribal Repository" is a unique digital repository related to Tribes in India.
 
 
                     The Ministry was set up in 1999 after the bifurcation of Ministry of Social Justice and Empowerment with the objective of providing more focused approach on the integrated socio-economic development of the Scheduled Tribes (STs), the most underprivileged of the Indian Society, in a coordinated and planned manner. Before the formation of the Ministry, tribal affairs were handled by different Ministries at different points in time.
