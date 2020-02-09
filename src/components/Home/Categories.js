@@ -4,7 +4,7 @@ import './Home.css';
 
 const Categories = () => {
     return(
-        <div id="categories">
+        <div className="section">
            
         </div>
     )

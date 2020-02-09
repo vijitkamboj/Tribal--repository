@@ -19,6 +19,7 @@
     padding-right: 35px;
     margin-top: auto;
     margin-bottom: auto;
+    box-sizing: content-box;
 }
 #nav-logo{
     position: absolute;

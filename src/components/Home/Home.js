@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
 import './Home.css';
 import Nav from '../Nav/Nav'
-import Home_Cover from "./Home_Cover"
+import HomeCover from "./HomeCover"
 import Categories from './Categories';
 import Photos from './Photos';
 import Documents from './Documents';
@@ -17,12 +17,12 @@ class Home extends Component {
 		return(
 			<div className="home">
 				<Nav />
-				<Home_Cover />
-				<Categories />
+				<HomeCover/>
+				<Categories  />
 				<Photos />
-				<Videos />
+				<Videos  />
 				<Documents />
-				<Audio />
+				<Audio  />
 			</div>
 		)
 

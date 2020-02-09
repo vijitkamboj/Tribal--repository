@@ -20,7 +20,6 @@ export const clearUser = () => {
 } // used to clear the current user when signout
 
 export const fetchLinks = (links) => { 
-        const linkTask = firebase.storage().ref(`links`).child(links)  ;                    
     return({
         type: actionTypes.FETCH_LINKS,
         payload: {

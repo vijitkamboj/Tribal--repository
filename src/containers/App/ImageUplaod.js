@@ -36,26 +36,19 @@ class ImageUpload extends Component {
         );
         this.setState({
           progress
-        },() => {
-          firebase.storage()
-            .ref("files")
-            .child(file.name)
-            .getDownloadURL()
-            .then(url => {
-              this.setState({ url });
-              if (progress === 100){
-                this.props.fetchLinks(url)
-                console.log("yooooooooooooooooooooooooooooooooooooooooo");
-              }
-            });
         });
       },
       error => {
         console.log(error);
+      },
+      () => {
+        uploadTask.snapshot.ref.getDownloadURL()
+        .then(url => {
+          const uploadDurlTask = firebase.storage().ref(`links/${file.name}`).putString(url);
+          this.setState({url})
+        })
       }
-  );
-
-  
+    );
   };
   render() {
     console.log(this.state.url);
