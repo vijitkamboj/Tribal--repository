@@ -45,19 +45,18 @@ class ImageUpload extends Component {
         uploadTask.snapshot.ref.getDownloadURL()
         .then(url => {
           const uploadDurlTask = firebase.storage().ref(`links/${file.name}`).putString(url);
-          this.setState({url})
+          this.setState({url,progress:0,file:null})
         })
       }
     );
   };
   render() {
-    console.log(this.state.url);
     return (
           <div className="file-upload">
             <div className="image-upload-wrap">
               <input className="file-upload-input" type='file' onChange={this.handleChange} />
               <div className="drag-text">
-                <h3>Drag and drop a file or select add Image</h3>
+                <h3>{this.state.file !== null ?`${this.state.file.name}`: "Drag and drop a file or select add Image"}</h3>
               </div>
             </div>
            
