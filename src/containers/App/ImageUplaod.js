@@ -56,7 +56,7 @@ class ImageUpload extends Component {
             <div className="image-upload-wrap">
               <input className="file-upload-input" type='file' onChange={this.handleChange} />
               <div className="drag-text">
-                <h3>{this.state.file !== null ?`${this.state.file.name}`: "Drag and drop a file or select add Image"}</h3>
+                <h3>{this.state.file !== null ?`${this.state.file.name}`: "Drag and drop a file or click on the box"}</h3>
               </div>
             </div>
            

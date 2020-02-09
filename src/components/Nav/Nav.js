@@ -8,7 +8,7 @@ import {Dropdown} from "semantic-ui-react"
 class Nav extends Component {
 
     state = {
-        modal:false
+        modal:false,
     };
 
     openModal = () => {
@@ -74,16 +74,8 @@ class Nav extends Component {
                 <Dropdown.Item text='E-mail Collaborators' />
                 </Dropdown.Menu>
             </Dropdown>
-            {/* <Dropdown 
-                id="user-panel-dropdown" 
-                trigger={
-                    <div className="navbtn"><Link to="/home" className='links'>Categories</Link></div>
-                } 
-                options={this.dropDownOptions()}
-                pointing
-                /> */}
-            {/* <div className="navbtn"><Link to="/home" className='links'>Dashboard</Link></div> */}
-            <div className="navbtn"><Link to="/login" className='links'>Login</Link></div>
+            {this.props.currentUser !==null ? null: <div className="navbtn"><Link to="/login" className='links'>Login</Link></div>}
+            {this.props.currentUser ===null ? null: <div className="navbtn"><Link to="/app" className='links'>Dashboard</Link></div>}
             <AboutModal modal={this.state.modal} closeModal={this.closeModal}/>
         </div>
         )

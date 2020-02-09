@@ -6,7 +6,8 @@ import Categories from './Categories';
 import Photos from './Photos';
 import Documents from './Documents';
 import Videos from "./Videos";
-import Audio from "./Audio"
+import Audio from "./Audio";
+import {connect} from "react-redux"
 
 
 class Home extends Component {
@@ -16,7 +17,7 @@ class Home extends Component {
 		document.body.className = "app-back"
 		return(
 			<div className="home">
-				<Nav />
+				<Nav currentUser = {this.props.currentUser}/>
 				<HomeCover/>
 				<Categories  />
 				<Photos />
@@ -28,4 +29,10 @@ class Home extends Component {
 
 	}
 }
-export default Home;
+const mapStateToProps = ({user}) => {
+    return({
+        currentUser: user.currentUser
+    })
+} // providing global state to the component
+
+export default connect(mapStateToProps)(Home);

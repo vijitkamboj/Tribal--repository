@@ -29,10 +29,8 @@ class Root extends Component {
     componentDidMount() {
         firebase.auth().onAuthStateChanged(currentUser => {
             if (currentUser ) {
-                setTimeout(() => {
-                    this.props.setUser(currentUser)
-                    this.props.history.push("/app")
-                }, 0) // store user in global state and redirect user to chat console
+                this.props.setUser(currentUser)
+                this.props.history.push("/app") // store user in global state and redirect user to Dashboard console
             }else {
                 this.props.history.push("/home")
                 this.props.clearUser() // redirects user to home page if there is no currently signed in user
