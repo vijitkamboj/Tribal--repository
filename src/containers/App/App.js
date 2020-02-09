@@ -3,6 +3,9 @@ import './App.css';
 import {Button} from 'semantic-ui-react';
 import firebase from "../../firebase";
 import ImageUplaod from "./ImageUplaod";
+import {Link} from "react-router-dom";
+import ReactPlayer from "react-player";
+import {removeLinks} from "../../actions/index"
 //import UserPanel from "./UserPanel"
 
 
@@ -18,8 +21,11 @@ class App extends Component {
     render(){
         return(
             <div>
-                <Button onClick={this.handleSignOut} size="big" content="SignOut" color="brown" style={{margin:"10px"}}/>
+                
+                <Button onClick={this.handleSignOut} size="big" content="SignOut" color="brown" style={{margin:"10px"}} />
+                <Link to="/home"><Button size="big" color="facebook" style={{margin:"10px",marginLeft:"auto"}} content="Home" /> </Link>
                 <ImageUplaod />
+                {this.props.link?<ReactPlayer url={this.props.link} playing={false} controls onEnded={()=>this.props.removeLinks()}/>:null}
 
             </div>
         )
@@ -27,10 +33,11 @@ class App extends Component {
 
 }
 
-const mapStateToProps = ({user}) => {
+const mapStateToProps = ({user,data}) => {
     return({
-        currentUser: user.currentUser
+        currentUser: user.currentUser,
+        link: data.links 
     })
 } // providing global state to the component
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps,{removeLinks})(App);

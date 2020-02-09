@@ -45,12 +45,15 @@ class ImageUpload extends Component {
         uploadTask.snapshot.ref.getDownloadURL()
         .then(url => {
           const uploadDurlTask = firebase.storage().ref(`links/${file.name}`).putString(url);
+          this.props.fetchLinks(url)
           this.setState({url,progress:0,file:null})
+          
         })
       }
     );
   };
   render() {
+    console.log(this.state.url);
     return (
           <div className="file-upload">
             <div className="image-upload-wrap">

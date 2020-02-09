@@ -55,7 +55,7 @@ class Nav extends Component {
                 <div id ="nav-logo">
             </div>
             <div className="navbtn"><Link to="/home" className='links'>Home</Link></div>
-            <div className="navbtn" onClick={this.openModal}><Link to="/home#about" className='links' >About</Link></div>
+            <div className="navbtn" onClick={this.openModal}><Link to="/home" className='links' >About</Link></div>
             <div className="navbtn"><Link to="/home" className='links'>Contact Us</Link></div>
             <Dropdown trigger={
                     <div className="navbtn"><Link to="/home" className='links'>Categories</Link></div>
