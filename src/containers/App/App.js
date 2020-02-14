@@ -12,21 +12,18 @@ import {removeLinks} from "../../actions/index"
 import {connect} from "react-redux"
 
 class App extends Component {
-
     handleSignOut = () => {
         firebase.auth().signOut()
       
     }
-
+  
     render(){
         return(
             <div>
-                
                 <Button onClick={this.handleSignOut} size="big" content="SignOut" color="brown" style={{margin:"10px"}} />
                 <Link to="/home"><Button size="big" color="facebook" style={{margin:"10px",marginLeft:"auto"}} content="Home" /> </Link>
                 <ImageUplaod />
-                {this.props.link?<ReactPlayer url={this.props.link} playing={false} controls onEnded={()=>this.props.removeLinks()}/>:null}
-
+                {this.props.links?<ReactPlayer url={this.props.links[-1]} playing={false} controls onEnded={()=>this.props.removeLinks()}/>:null}
             </div>
         )
     }
@@ -36,7 +33,7 @@ class App extends Component {
 const mapStateToProps = ({user,data}) => {
     return({
         currentUser: user.currentUser,
-        link: data.links 
+        
     })
 } // providing global state to the component
 

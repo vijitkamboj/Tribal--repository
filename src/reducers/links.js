@@ -2,7 +2,7 @@ import * as actionTypes from "../actions/types"
 
 
 const initialUserState ={
-    links:null
+    links:[]
 
 }
 // by defualt loading is ture 
@@ -15,7 +15,7 @@ const data_reducer = (state = initialUserState ,action) => {
             })
         case actionTypes.REMOVE_LINKS :
             return({
-                links:null
+                links:[]
             })
         default:
             return state;

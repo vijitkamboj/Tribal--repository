@@ -23,10 +23,10 @@ export const fetchLinks = (links) => {
     return({
         type: actionTypes.FETCH_LINKS,
         payload: {
-            links: links,
+            links: [...links],
         }
     })
-} // used to clear the current user when signout
+} 
 export const removeLinks = () => {                           
     return({
         type: actionTypes.REMOVE_LINKS,
@@ -34,6 +34,6 @@ export const removeLinks = () => {
             links: null,
         }
     })
-} // used to clear the current user when signout
+} 
 
 

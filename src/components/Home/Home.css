@@ -14,6 +14,8 @@
     background-color: rgb(255, 255, 255)
 }
 .section{
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 100%;
     height: 500px;
@@ -26,8 +28,6 @@
     background-color: rgba(0, 0, 0, 0);
     width: 100%;
     text-align: center;
-    position: absolute;
-    top: 0px;
 }
 .home-heading{
     width: fit-content;
@@ -42,3 +42,29 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
+#photos{
+    width:auto;
+    display: flex;
+    flex-direction: row;
+    
+    overflow-X: auto;
+    overflow-y: hidden;
+    flex-grow: 1;
+}
+
+.imageBox{
+
+    padding: 10px;
+    min-width:300px;
+    max-height: 300px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.Image{
+    width: 100%;
+    height: inherit;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 5px;
+}

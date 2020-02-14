@@ -20,13 +20,30 @@ import firebase from './firebase';
 import {createStore} from 'redux';
 import {Provider ,connect} from 'react-redux';
 import rootReducer from "./reducers";
-import {setUser,clearUser} from "./actions/index"
+import {setUser,clearUser,fetchLinks} from "./actions/index"
 
 const store = createStore( rootReducer , composeWithDevTools()) //created store for global state
    
 class Root extends Component {
 
+    state={
+        imageLinks: this.props.links
+    }
+
+    componentWillUnmount(){
+        firebase.database().ref("image").off("child_added")
+    }
+
     componentDidMount() {
+        let imageLinks = this.state.imageLinks
+        
+        firebase
+            .database()
+            .ref("image")
+            .on("child_added", (snapshot) => {
+                imageLinks.push(`${snapshot.val().url}`)
+                this.props.fetchLinks(imageLinks);
+            })
         firebase.auth().onAuthStateChanged(currentUser => {
             if (currentUser ) {
                 this.props.setUser(currentUser)
@@ -36,7 +53,8 @@ class Root extends Component {
                 this.props.clearUser() // redirects user to home page if there is no currently signed in user
             }
         })
-    } // automatically routing the user to chat console on refreshing if user is already logged in 
+        
+    } 
 
     render(){
         document.body.className = 'none';
@@ -52,11 +70,12 @@ class Root extends Component {
 
 const mapStateToProps = (state) => ({
     isLoading: state.user.isLoading,
-    currentUser: state.user.currentUser
+    currentUser: state.user.currentUser,
+    links: state.data.links
 })
 
 
-const RootWithAuth = withRouter(connect( mapStateToProps ,{setUser,clearUser})(Root));  //connect (mapStateToProps , mapDispatchToProps)
+const RootWithAuth = withRouter(connect( mapStateToProps ,{setUser,clearUser,fetchLinks})(Root));  //connect (mapStateToProps , mapDispatchToProps)
 // higher order component and pass isLoading state and setUser method as props to Root Componenet
 
 ReactDOM.render(<Provider store = {store}><Router><RootWithAuth /></Router></Provider>, document.getElementById('root'));
