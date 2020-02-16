@@ -7,13 +7,10 @@ class ImageBox extends Component {
     
 	render(){
 		return(
-           <div className="imageBox">
-                <div className="imageCont">
-				<img src={this.props.link} className="Image" alt="image1" />
-				</div>
+           <div className="imageBox" style={{backgroundImage:`url(${this.props.link})`}}>
+            
            </div>
 		)
-
 	}
 }
 
