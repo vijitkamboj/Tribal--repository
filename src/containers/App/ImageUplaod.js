@@ -6,7 +6,6 @@ import {Button,Progress} from "semantic-ui-react"
 import {connect} from "react-redux";
 import {fetchLinks} from "../../actions/index"
 import Resizer from "react-image-file-resizer"
-import {Image} from "semantic-ui-react"
 
 
 class ImageUpload extends Component {
@@ -32,25 +31,46 @@ class ImageUpload extends Component {
     }
   };
 
+  handleEfileUpload(url,file,type, name) {
+    Resizer.imageFileResizer(
+      file,
+      1000,
+      1000,
+      'JPEG',
+      100,
+      0,
+      uri => {
+        const storeEncryUrlTask = firebase
+          .storage().ref(`encry/${type}/${name}`)
+          .putString(uri, 'data_url')
+
+        storeEncryUrlTask
+          .on("state_changed",
+            snap => console.log(snap),
+            error => console.log(error),
+            () => {
+              storeEncryUrlTask.snapshot.ref.getDownloadURL().then(eurl => {
+                const storeDownEncryUrlTask = firebase.database().ref(`${type}/${name}`).set({
+                    eurl,
+                    url
+                  },
+                  this.setState({
+                    progress: 0,
+                    file: ""
+                  }))
+              })
+            })
+
+      },
+      'base64'
+    );
+  }
+
   handleUpload = () => {
     const {
       file
     } = this.state;
-    Resizer.imageFileResizer(
-      file,
-      300,
-      300,
-      'JPEG',
-      75,
-      0,
-      uri => {
-          this.setState({
-            imageLink: uri
-          })
-          console.log(uri);
-      },
-      'base64'
-    );
+    
 
     const uploadTask = firebase.storage().ref(`files/${file.name}`).put(file);
     uploadTask.on(
@@ -75,11 +95,7 @@ class ImageUpload extends Component {
             firebase.storage().ref(`files/${file.name}`).getMetadata().then(metaData => {
               const type = metaData.contentType.split("/")[0];
               const name = file.name.split(".")[0]
-              const storeDUlrlTask = firebase.database().ref(`${type}/${name}`).set({url});
-              this.setState({
-                progress: 0,
-                file: ""
-              })
+              this.handleEfileUpload(url,file,type,name)
             })
 
           })
@@ -117,9 +133,6 @@ class ImageUpload extends Component {
                 size="large"
                 style = {{margin:"2px 0 0 0",padding:0}}
             />
-            {
-              this.state.imageLink ? <Image src={this.state.imageLink} size="small"/> :null
-            }
             </div>
           </div>
       

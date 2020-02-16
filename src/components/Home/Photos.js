@@ -35,7 +35,7 @@ class Photos extends Component {
                 </div>
                 <div id="photos">
                     
-                    {this.state.links !== null ? this.state.links.map(link => <ImageBox link={link}/>) : null}
+                    {this.state.links !== null ? this.state.links.map((link,i) => <ImageBox link={link.eurl} key={i}/>) : null}
                     
                 </div>
             </div>
