@@ -13,21 +13,14 @@ class ImageUpload extends Component {
   state = {
     file: "",
     progress: 0,
-    form:false,
-    imageLink:null
+    imageLink:null,
+    uploading:false
   };
 
   handleChange = e => {
     if (e.target.files[0]) {
-      this.setState({
-        form :true
-      })
       const file = e.target.files[0];
       this.setState(() => ({ file }));
-    }else{
-      this.setState({
-        form:false
-      })
     }
   };
 
@@ -54,10 +47,7 @@ class ImageUpload extends Component {
                     eurl,
                     url
                   },
-                  this.setState({
-                    progress: 0,
-                    file: ""
-                  }))
+                  )
               })
             })
 
@@ -67,45 +57,52 @@ class ImageUpload extends Component {
   }
 
   handleUpload = () => {
-    const {
-      file
-    } = this.state;
-    
-
-    const uploadTask = firebase.storage().ref(`files/${file.name}`).put(file);
-    uploadTask.on(
-      "state_changed", // 1st argument  --- type of listener
-
-      snapshot => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        this.setState({
-          progress
-        });
-      }, // 2nd argument --- handles snapshot
-
-      error => {
-        console.log(error);
-      }, // 3rd argument --- handles error
-
-      () => {
-        uploadTask.snapshot.ref.getDownloadURL()
-          .then(url => {
-            firebase.storage().ref(`files/${file.name}`).getMetadata().then(metaData => {
-              const type = metaData.contentType.split("/")[0];
-              const name = file.name.split(".")[0]
-              this.handleEfileUpload(url,file,type,name)
-            })
-
+    if(this.state.file!==""){
+      const {
+        file
+      } = this.state;
+      
+      this.setState({uploading:true})
+      const uploadTask = firebase.storage().ref(`files/${file.name}`).put(file);
+      uploadTask.on(
+        "state_changed", // 1st argument  --- type of listener
+  
+        snapshot => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          this.setState({
+            progress
+          });
+        }, // 2nd argument --- handles snapshot
+  
+        error => {
+          console.log(error);
+        }, // 3rd argument --- handles error
+  
+        () => {
+          this.setState({
+            progress: 0,
+            file: "",
+            uploading:false
           })
-      } 
-    ); // 4th argument --- executes when upload is successful
-    
+          uploadTask.snapshot.ref.getDownloadURL()
+            .then(url => {
+              firebase.storage().ref(`files/${file.name}`).getMetadata().then(metaData => {
+                const type = metaData.contentType.split("/")[0];
+                const name = file.name.split(".")[0]
+                this.handleEfileUpload(url,file,type,name)
+              })
+  
+            })
+        } 
+      ); // 4th argument --- executes when upload is successful
+      
+    }
   };
 
   render() {
-    const {file,progress,form} = this.state
+    const {file,progress,uploading} = this.state
     return (
           <div className="file-upload">
             <div className="image-upload-wrap">
@@ -122,7 +119,7 @@ class ImageUpload extends Component {
               content ="Upload"
               size = "medium"
               style={{margin:"10px"}}
-              disabled={!form}
+              disabled={uploading}
             />
             <div className="row">
             <Progress 

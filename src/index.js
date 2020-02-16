@@ -42,8 +42,7 @@ class Root extends Component {
             .ref("image")
             .on("child_added", (snapshot) => {
                 imageLinks.push({url:`${snapshot.val().url}`,eurl:`${snapshot.val().eurl}`})
-                this.props.fetchLinks(imageLinks
-                    );
+                this.props.fetchLinks(imageLinks);
             })
         firebase.auth().onAuthStateChanged(currentUser => {
             if (currentUser ) {
