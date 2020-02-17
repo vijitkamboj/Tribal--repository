@@ -23,8 +23,7 @@ export const fetchLinks = (links) => {
     return({
         type: actionTypes.FETCH_LINKS,
         payload: {
-            links: [...links],
-          
+            links:links
         }
     })
 } 

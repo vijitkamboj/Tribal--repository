@@ -42,7 +42,7 @@
     
 }
 
-#photos{
+.sub-sec{
     flex-grow: 1;
     align-self: center;
     width:95%;
@@ -54,10 +54,22 @@
     padding: 20px;
 }
 
+.player-wrapper{
+    min-height: 200px;
+    max-height: 350px;
+    width: auto;
+    margin-right: 10px;
+   
+    box-shadow: 0 3px 5px 0 #dfe5ee;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .imageBox{
     
-    min-width: 150px;
-    min-height: 200px;
+    min-width: 200px;
+    min-height: 250px;
     margin-right: 10px;
    
     box-shadow: 0 3px 5px 0 #dfe5ee;

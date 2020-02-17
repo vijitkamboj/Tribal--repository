@@ -23,8 +23,7 @@ class ImageUpload extends Component {
       this.setState(() => ({ file }));
     }
   };
-
-  handleEfileUpload(url,file,type, name) {
+  handleImageUpload(url,file,type,name){
     Resizer.imageFileResizer(
       file,
       1000,
@@ -54,6 +53,24 @@ class ImageUpload extends Component {
       },
       'base64'
     );
+  }
+
+  handleVideUpload(url,type,name){
+    const storeVideoUrlTask = firebase.database().ref(`${type}/${name}`).set({
+      url
+    })
+  }
+
+  handleEfileUpload(url,file,type, name) {
+    switch (type) {
+      case "image":
+        this.handleImageUpload(url,file,type,name)
+        break;
+      case "video":
+        this.handleVideUpload(url,type,name)
+      default:
+        break;
+    }
   }
 
   handleUpload = () => {

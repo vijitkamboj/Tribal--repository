@@ -2,7 +2,7 @@ import * as actionTypes from "../actions/types"
 
 
 const initialUserState ={
-    links:[]
+    links:{image:[],video:[]}
 
 }
 // by defualt loading is ture 
@@ -10,12 +10,11 @@ const data_reducer = (state = initialUserState ,action) => {
     switch (action.type) {
         case actionTypes.FETCH_LINKS:
             return({
-                links:action.payload.links
-                
+                links : action.payload.links 
             })
         case actionTypes.REMOVE_LINKS :
             return({
-                links:[]
+                links:{}
             })
         default:
             return state;

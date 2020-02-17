@@ -27,7 +27,7 @@ const store = createStore( rootReducer , composeWithDevTools()) //created store 
 class Root extends Component {
 
     state={
-        imageLinks: this.props.links
+        Links: this.props.links
     }
 
     componentWillUnmount(){
@@ -35,14 +35,26 @@ class Root extends Component {
     }
 
     componentDidMount() {
-        let imageLinks = this.state.imageLinks
+        var Links = this.state.Links
         
         firebase
             .database()
             .ref("image")
             .on("child_added", (snapshot) => {
-                imageLinks.push({url:`${snapshot.val().url}`,eurl:`${snapshot.val().eurl}`})
-                this.props.fetchLinks(imageLinks);
+                Links.image.push({
+                    url: `${snapshot.val().url}`,
+                    eurl: `${snapshot.val().eurl}`
+                })
+                this.props.fetchLinks(Links);
+            })
+        firebase
+            .database() 
+            .ref("video")
+            .on("child_added", (snapshot) => {
+                Links.video.push({
+                    url: `${snapshot.val().url}`
+                })
+                this.props.fetchLinks(Links);
             })
         firebase.auth().onAuthStateChanged(currentUser => {
             if (currentUser ) {

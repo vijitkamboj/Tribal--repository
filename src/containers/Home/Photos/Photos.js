@@ -11,9 +11,9 @@ class Photos extends Component {
         links:null
     }
     componentDidUpdate(prevProps){
-        if (prevProps.links !== this.props.links){
+        if (prevProps.links.image !== this.props.links.image){
             this.setState({
-                links:this.props.links
+                links:this.props.links.image
             })
         }
     }
@@ -21,7 +21,7 @@ class Photos extends Component {
     componentDidMount(){
 
         this.setState({
-            links:this.props.links
+            links:this.props.links.image
         })
     }
 	render(){
@@ -33,7 +33,7 @@ class Photos extends Component {
                             PHOTOS
                     </div>
                 </div>
-                <div id="photos">
+                <div className="sub-sec" id="photos">
                     
                     {this.state.links !== null ? this.state.links.map((link,i) => <ImageBox link={link.eurl} key={i}/>) : null}
                     
