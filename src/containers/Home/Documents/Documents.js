@@ -6,7 +6,7 @@ const Documents = () => {
         <div className="section">
            <div className ="home-heading-cont">
                 <div className="home-heading">
-                        Documents
+                        DOCUMENTS
                 </div>
            </div>
         </div>

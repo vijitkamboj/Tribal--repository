@@ -67,3 +67,14 @@
     
     border-radius: 7px;
 }
+@media screen and (max-width: 560px) {
+    .home-heading{
+        font-size: 14pt;
+    }
+    .imageBox{
+    
+        min-width: 120px;
+        min-height: 180px;
+        margin-right: 7px;
+    }
+  }

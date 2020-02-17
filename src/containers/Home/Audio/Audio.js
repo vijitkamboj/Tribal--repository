@@ -6,7 +6,7 @@ const Audio = () => {
         <div className="section">
            <div className ="home-heading-cont" >
                 <div className="home-heading">
-                        Audio
+                        AUDIO
                 </div>
            </div>
         </div>
