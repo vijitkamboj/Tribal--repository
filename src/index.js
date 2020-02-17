@@ -32,6 +32,7 @@ class Root extends Component {
 
     componentWillUnmount(){
         firebase.database().ref("image").off("child_added")
+        firebase.database().ref("videos").off("child_added")
     }
 
     componentDidMount() {

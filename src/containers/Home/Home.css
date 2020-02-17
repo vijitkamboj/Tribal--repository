@@ -55,12 +55,13 @@
 }
 
 .player-wrapper{
-    min-height: 200px;
-    max-height: 350px;
-    width: auto;
-    margin-right: 10px;
+    min-height: 150px;
+    max-height: 250px;
+    max-width: 3500px;
+    min-width: 250px;
+    margin-right: 15px;
    
-    box-shadow: 0 3px 5px 0 #dfe5ee;
+    box-shadow: 0 5px 9px 0 #c6ccd4;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

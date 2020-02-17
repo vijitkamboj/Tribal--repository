@@ -29,7 +29,7 @@ class Videos extends Component {
 			<div className="section" >
                 <div className ="home-heading-cont">
                     <div className="home-heading">
-                            Videos
+                            VIDEOS
                     </div>
                 </div>
                 <div className="sub-sec" id="videos">
