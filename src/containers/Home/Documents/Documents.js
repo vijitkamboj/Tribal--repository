@@ -1,16 +1,16 @@
 import React from 'react';
-import './Home.css';
+import '../Home.css';
 
-const Videos = () => {
+const Documents = () => {
     return(
         <div className="section">
            <div className ="home-heading-cont">
                 <div className="home-heading">
-                        Videos
+                        Documents
                 </div>
            </div>
         </div>
     )
 }
 
-export default Videos;
+export default Documents;

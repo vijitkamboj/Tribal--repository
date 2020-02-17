@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
-import './Home.css';
+import '../Home.css';
 
 import {connect} from "react-redux";
-import {fetchLinks} from "../../actions/index"
+import {fetchLinks} from "../../../actions/index"
  import ImageBox from "./ImageBox"
 
 
@@ -30,7 +30,7 @@ class Photos extends Component {
 			<div className="section" >
                 <div className ="home-heading-cont">
                     <div className="home-heading">
-                            Photos
+                            PHOTOS
                     </div>
                 </div>
                 <div id="photos">

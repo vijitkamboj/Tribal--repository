@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 
-import Home from './components/Home/Home';
+import Home from './containers/Home/Home';
 import Login from './containers/Auth/Login/Login';
 
 import App from './containers/App/App';

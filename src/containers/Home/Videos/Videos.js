@@ -1,16 +1,16 @@
 import React from 'react';
-import './Home.css';
+import '../Home.css';
 
-const Audio = () => {
+const Videos = () => {
     return(
         <div className="section">
-           <div className ="home-heading-cont" >
+           <div className ="home-heading-cont">
                 <div className="home-heading">
-                        Audio
+                        VIDEOS
                 </div>
            </div>
         </div>
     )
 }
 
-export default Audio;
+export default Videos;

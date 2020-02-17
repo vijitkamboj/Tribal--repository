@@ -1,24 +1,23 @@
 #nav{
-    position: fixed;
-    top:0px;
+    position: absolute;
+    top:10px;
     width:100%;
     height: auto;
-    padding:5px;
+    padding:10px;
     
 
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 
-    background-color: rgba(14, 14, 14, 0.712);
     z-index: 1;
 }
 .navbtn{
-    font-size:25px;
+    font-size: 15pt;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding:10px;
-    padding-right: 35px;
+    margin-right: 40px;
+    width: auto;
     margin-top: auto;
     margin-bottom: auto;
     box-sizing: content-box;
