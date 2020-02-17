@@ -15,6 +15,7 @@ class VideoBox extends Component {
 			height='100%'
 			playing={false}
 			controls={true}
+			
 		  />
 		</div>
 	  )

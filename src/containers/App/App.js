@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import './App.css';
 import {Button} from 'semantic-ui-react';
 import firebase from "../../firebase";
-import ImageUplaod from "./ImageUplaod";
+import FileUplaod from "./FileUplaod";
 import {Link} from "react-router-dom";
 import ReactPlayer from "react-player";
 import {removeLinks} from "../../actions/index"
@@ -22,7 +22,7 @@ class App extends Component {
             <div>
                 <Button onClick={this.handleSignOut} size="big" content="SignOut" color="brown" style={{margin:"10px"}} />
                 <Link to="/home"><Button size="big" color="facebook" style={{margin:"10px",marginLeft:"auto"}} content="Home" /> </Link>
-                <ImageUplaod />
+                <FileUplaod />
                 {this.props.links?<ReactPlayer url={this.props.links[-1]} playing={false} controls onEnded={()=>this.props.removeLinks()}/>:null}
             </div>
         )

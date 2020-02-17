@@ -1,14 +1,14 @@
 
 import React, { Component } from "react";
 import firebase from "../../firebase";
-import "./ImageUpload.css";
+import "./FileUpload.css";
 import {Button,Progress} from "semantic-ui-react"
 import {connect} from "react-redux";
 import {fetchLinks} from "../../actions/index"
 import Resizer from "react-image-file-resizer"
 
 
-class ImageUpload extends Component {
+class FileUpload extends Component {
  
   state = {
     file: "",
@@ -154,4 +154,4 @@ class ImageUpload extends Component {
   }
 }
 
-export default connect(null,{fetchLinks})(ImageUpload);
+export default connect(null,{fetchLinks})(FileUpload);
