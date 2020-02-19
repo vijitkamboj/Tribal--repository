@@ -5,9 +5,9 @@ import HomeCover from "./Cover/HomeCover"
 
 import Photos from './Photos/Photos';
 
-import Documents from './Documents/Documents';
+
 import Videos from "./Videos/Videos";
-import Audio from "./Audio/Audio";
+
 import {connect} from "react-redux"
 
 
@@ -20,10 +20,9 @@ class Home extends Component {
 			<div className="home">
 				<Nav currentUser = {this.props.currentUser}/>
 				<HomeCover/>
-				<Photos />
-				<Videos  />
-				<Documents />
-				<Audio  />
+				{this.props.currentUser ? <Photos /> : null}
+				{this.props.currentUser ? <Videos /> : null}
+				
 			</div>
 		)
 

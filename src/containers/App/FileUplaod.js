@@ -38,7 +38,7 @@ class FileUpload extends Component {
 
         storeEncryUrlTask
           .on("state_changed",
-            snap => console.log(snap),
+            snap => null,
             error => console.log(error),
             () => {
               storeEncryUrlTask.snapshot.ref.getDownloadURL().then(eurl => {

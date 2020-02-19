@@ -14,7 +14,7 @@ const data_reducer = (state = initialUserState ,action) => {
             })
         case actionTypes.REMOVE_LINKS :
             return({
-                links:{}
+                links:{image:[],video:[]}
             })
         default:
             return state;
