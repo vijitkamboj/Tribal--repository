@@ -20,6 +20,7 @@
 }
 
 
+
 .home-heading-cont{
     align-self: center;
     height :auto;
@@ -52,7 +53,14 @@
     overflow-X: auto;
     overflow-y: hidden;
     padding: 20px;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
 }
+.sub-sec::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+
 
 .player-wrapper{
     min-height: 150px;

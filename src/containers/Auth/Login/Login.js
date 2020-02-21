@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import firebase from '../../../firebase'
 
 import { Button,Message } from 'semantic-ui-react';
-import Logo from '../Logo';
+// import Logo from '../Logo';
 import '../Register/Register.css'
 
 
@@ -98,7 +98,8 @@ class login extends Component {
 
 		return(
 			<div id="login">
-				<Logo Link = {Link}/>
+				{/* <Logo Link = {Link}/> */}
+				<Link to="/home"><Button size="medium" color="google plus" style={{margin:"10px",marginLeft:"auto"}} content="Home" /> </Link>
 				<div className="form-cont"  onKeyDown={handleEnter}>
 
 					<div className="form-header">

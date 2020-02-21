@@ -125,7 +125,7 @@ class FileUpload extends Component {
             <div className="image-upload-wrap">
               <input className="file-upload-input" type="file" onChange={this.handleChange}/>
               <div className="drag-text">
-                <h3>{file !== "" ?`${file.name}`: "Drag and drop a file or click on the box"}</h3>
+                <h3>{file !== "" ?`${file.name}`: "Drag or click"}</h3>
               </div>
             </div>
 
@@ -135,7 +135,7 @@ class FileUpload extends Component {
               className="waves-effect waves-light btn"
               content ="Upload"
               size = "medium"
-              style={{margin:"10px"}}
+              style={{margin:"10px 0px"}}
               disabled={uploading}
             />
             <div className="row">

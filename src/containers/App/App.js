@@ -23,7 +23,7 @@ class App extends Component {
                 <Button onClick={this.handleSignOut} size="big" content="SignOut" color="brown" style={{margin:"10px"}} />
                 <Link to="/home"><Button size="big" color="facebook" style={{margin:"10px",marginLeft:"auto"}} content="Home" /> </Link>
                 <FileUplaod />
-                {this.props.links?<ReactPlayer url={this.props.links[-1]} playing={false} controls onEnded={()=>this.props.removeLinks()}/>:null}
+
             </div>
         )
     }
